@@ -1,1 +1,1 @@
-render.partial! 'user', user: @user
+render.partial! 'api/users/user', user: @user

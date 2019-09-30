@@ -18,17 +18,14 @@ export const receiveSessionErrors = errors => ({
   errors,
 })
 
-export const login = user => dispatch => {
-
-  APIUtil.login(user).then(user => {
-      console.log('asdasd', user);
-      return dispatch(receiveCurrentUser(user));
-    }, console.log);
-}
+export const login = user => dispatch => (
+  APIUtil.login(user)
+  .then(user => dispatch(receiveCurrentUser(user)), error => dispatch(receiveSessionErrors(error.responseJSON)))
+);
 
 export const signup = user => dispatch => (
   APIUtil.signup(user)
-    .then(user => dispatch(receiveCurrentUser(user)))
+    .then(user => dispatch(receiveCurrentUser(user)), error => dispatch(receiveSessionErrors(error.responseJSON)))
 )
 
 export const logout = () => dispatch => (

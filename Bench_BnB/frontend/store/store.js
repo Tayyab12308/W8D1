@@ -8,7 +8,6 @@ import logger from 'redux-logger';
 // export default configureStore;
 
 export default (preloadedState = {}) => {
-  // debugger
   return createStore(
     rootReducer,
     preloadedState,

@@ -5,7 +5,7 @@ def create
 
   if @user.save
     login!(@user)
-    render json: "gj byah"
+    render json: [ "Successful Sign Up" ]
   else
     render json: @user.errors.full_messages, status: 422
   end
